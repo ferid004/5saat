@@ -3,10 +3,11 @@ import axios from 'axios'
 import './index.scss'
 import { useWish } from '../../context/useWishContext'
 import { usebasket } from '../../context/useBasketContext'
+import { Link } from 'react-router-dom'
 function Product() {
 
-    const { wish, setwish, handlewish }=useWish()
-    const { basket, setbasket, handlebasket,basketdelete,artir,azalt }= usebasket()
+    const { wish, setwish, handlewish } = useWish()
+    const { basket, setbasket, handlebasket, basketdelete, artir, azalt } = usebasket()
 
     ////
     const [product, setproduct] = useState([])
@@ -27,7 +28,9 @@ function Product() {
                     {product && product.map((item) => (
                         <div className="box" key={item._id}>
                             <div className="left">
-                                <div className="imgbox"><img src={item.src} alt="" /></div>
+                                <Link to={`/detail/${item._id}`}>
+                                    <div className="imgbox"><img src={item.src} alt="" /></div>
+                                </Link>
                                 <div className="text">
                                     <div className="name">{item.name}</div>
                                     <div className="info">{item.info}</div>
@@ -36,8 +39,8 @@ function Product() {
                             <div className="right">
                                 <div className="price">$ {item.price}</div>
                                 <div className="icon">
-                                    <i onClick={()=>handlebasket(item)} className="fa-solid fa-basket-shopping"></i>
-                                    <i onClick={()=>handlewish(item)} className="fa-solid fa-heart"></i>
+                                    <i onClick={() => handlebasket(item)} className="fa-solid fa-basket-shopping"></i>
+                                    <i onClick={() => handlewish(item)} className="fa-solid fa-heart"></i>
                                 </div>
 
                             </div>

@@ -26,7 +26,7 @@ function App() {
                 <Route element={<Add></Add>} path='/add'></Route>
                 <Route element={<Wish></Wish>} path='/wish'></Route>
                 <Route element={<Basket></Basket>} path='/basket'></Route>
-                <Route element={<Detail></Detail>} path='/detaul/:id'></Route>
+                <Route element={<Detail></Detail>} path='/detail/:id'></Route>
               </Route>
 
             </Routes>
