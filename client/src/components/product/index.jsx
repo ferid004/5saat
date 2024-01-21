@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './index.scss'
+import { useWish } from '../../context/useWishContext'
+import { usebasket } from '../../context/useBasketContext'
 function Product() {
+
+    const { wish, setwish, handlewish }=useWish()
+    const { basket, setbasket, handlebasket,basketdelete,artir,azalt }= usebasket()
+
+    ////
     const [product, setproduct] = useState([])
     const alldata = async () => {
         const res = await axios.get('http://localhost:3000/')
@@ -29,8 +36,8 @@ function Product() {
                             <div className="right">
                                 <div className="price">$ {item.price}</div>
                                 <div className="icon">
-                                    <i className="fa-solid fa-basket-shopping"></i>
-                                    <i className="fa-solid fa-heart"></i>
+                                    <i onClick={()=>handlebasket(item)} className="fa-solid fa-basket-shopping"></i>
+                                    <i onClick={()=>handlewish(item)} className="fa-solid fa-heart"></i>
                                 </div>
 
                             </div>
