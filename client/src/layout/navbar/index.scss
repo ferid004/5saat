@@ -1,0 +1,17 @@
+#navbar {
+    height: 72px;
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+
+    .dev {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .links{
+            display: flex;
+            gap: 10px;
+        }
+    }
+}
