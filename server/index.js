@@ -7,7 +7,10 @@ app.use(express.json())
 app.use(cors())
 
 const proSchema = new mongoose.Schema({
-    name: String
+    name: String,
+    info:String,
+    src:String,
+    price:Number
 });
 const Product = mongoose.model('product0024', proSchema);
 
